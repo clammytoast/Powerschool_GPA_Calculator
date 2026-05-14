@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA Calculator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-text">PS</span>
+        </div>
+        <div>
+          <div class="header-title">GPA Calculator</div>
+          <div class="header-subtitle">PowerSchool</div>
+        </div>
+      </div>
+      <button class="autofill-btn" id="autofillBtn" title="Auto-fill grades from the current PowerSchool grades page">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        Auto-fill from Page
+      </button>
+    </header>
+
+    <!-- Term Selector -->
+    <div class="term-bar">
+      <span class="term-label">Term:</span>
+      <div class="term-tabs" id="termTabs">
+        <button class="term-tab active" data-term="T1">T1</button>
+        <button class="term-tab" data-term="T2">T2</button>
+        <button class="term-tab" data-term="T3">T3</button>
+        <button class="term-tab" data-term="Y1">Y1</button>
+      </div>
+      <div class="status-msg" id="statusMsg"></div>
+    </div>
+
+    <!-- Courses Table -->
+    <div class="table-wrap">
+      <table class="courses-table">
+        <thead>
+          <tr>
+            <th class="col-name">Course Name</th>
+            <th class="col-grade">Grade</th>
+            <th class="col-credits">Credits</th>
+            <th class="col-pts">Pts</th>
+            <th class="col-del"></th>
+          </tr>
+        </thead>
+        <tbody id="coursesBody">
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Footer Actions -->
+    <div class="table-footer">
+      <button class="btn-add" id="addBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Add Course
+      </button>
+      <button class="btn-clear" id="clearBtn">Clear All</button>
+    </div>
+
+    <!-- Results -->
+    <div class="results">
+      <div class="results-header">
+        <div class="mode-toggle" id="modeToggle">
+          <button class="mode-btn active" data-mode="gpa">GPA</button>
+          <button class="mode-btn" data-mode="pct">%</button>
+        </div>
+      </div>
+      <div class="result-cards">
+        <div class="result-card">
+          <div class="result-label" id="unweightedLabel">Unweighted GPA</div>
+          <div class="result-value" id="unweightedVal">—</div>
+          <div class="result-note" id="unweightedNote">No grades entered</div>
+        </div>
+        <div class="result-card result-card-blue">
+          <div class="result-label" id="weightedLabel">Weighted GPA</div>
+          <div class="result-value" id="weightedVal">—</div>
+          <div class="result-note" id="weightedNote">Add credits to calculate</div>
+        </div>
+      </div>
+      <div class="result-meta" id="resultMeta"></div>
+    </div>
+
+    <!-- Grade Scale Reference (collapsible) -->
+    <div class="scale-toggle" id="scaleToggle">
+      <span>Grade Scale Reference</span>
+      <svg id="scaleArrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+    <div class="scale-table" id="scaleTable" style="display:none">
+      <table>
+        <thead><tr><th>Grade</th><th>Points</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td>A+</td><td>4.00</td><td>97–100</td></tr>
+          <tr><td>A</td><td>4.00</td><td>93–96</td></tr>
+          <tr><td>A-</td><td>3.70</td><td>90–92</td></tr>
+          <tr><td>B+</td><td>3.30</td><td>87–89</td></tr>
+          <tr><td>B</td><td>3.00</td><td>83–86</td></tr>
+          <tr><td>B-</td><td>2.70</td><td>80–82</td></tr>
+          <tr><td>C+</td><td>2.30</td><td>77–79</td></tr>
+          <tr><td>C</td><td>2.00</td><td>73–76</td></tr>
+          <tr><td>C-</td><td>1.70</td><td>70–72</td></tr>
+          <tr><td>D+</td><td>1.30</td><td>67–69</td></tr>
+          <tr><td>D</td><td>1.00</td><td>63–66</td></tr>
+          <tr><td>D-</td><td>0.70</td><td>60–62</td></tr>
+          <tr><td>F</td><td>0.00</td><td>&lt;60</td></tr>
+          <tr><td>P/NP</td><td>—</td><td>Not counted</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Datalist for grade autocomplete -->
+  <datalist id="gradeList">
+    <option value="A+"><option value="A"><option value="A-">
+    <option value="B+"><option value="B"><option value="B-">
+    <option value="C+"><option value="C"><option value="C-">
+    <option value="D+"><option value="D"><option value="D-">
+    <option value="F"><option value="P"><option value="NP">
+  </datalist>
+
+  <script src="popup.js"></script>
+</body>
+</html>

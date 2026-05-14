@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "PowerSchool GPA Calculator",
+  "version": "1.0.0",
+  "description": "Calculate your GPA from PowerSchool grades for T1, T2, T3, and Y1 terms with weighted and unweighted options.",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GPA Calculator",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
