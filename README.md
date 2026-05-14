@@ -77,9 +77,3 @@ To **reload** the extension after making changes, click the 🔄 refresh icon on
 
 **Changes not reflecting?**
 - Click the 🔄 refresh button on the extension card in `chrome://extensions`
-
----
-
-## 📄 License
-
-MIT — feel free to use and modify.
