@@ -48,12 +48,10 @@ Once enabled, three new buttons will appear at the top:
 
 ---
 
-### Step 3 — Load the Extension Folder
+##Step 3 — Load the Extension Folder
 
-1. Click **"Load unpacked"**
-2. A file picker dialog will open
-3. Navigate to and **select the extension's root folder** (the one containing `manifest.json`)
-4. Click **Select Folder**
+Open File Explorer and navigate to the extension's root folder (the one containing manifest.json)
+Drag and drop the folder directly onto the chrome://extensions page
 
 ![Step 3 - Load Unpacked](./Step_3.png)
 
