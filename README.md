@@ -69,19 +69,6 @@ To **reload** the extension after making changes, click the 🔄 refresh icon on
 
 ---
 
-## 🗂️ Project Structure
-
-```
-your-extension/
-├── manifest.json       ← Required: extension config
-├── background.js       ← Service worker (if any)
-├── content.js          ← Content scripts (if any)
-├── popup.html          ← Popup UI (if any)
-└── icons/              ← Extension icons
-```
-
----
-
 ## 🛠️ Troubleshooting
 
 **Extension not loading?**
