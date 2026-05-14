@@ -28,7 +28,7 @@ Or go to: **Chrome Menu (⋮) → Extensions → Manage Extensions**
 
 You'll see the Extensions page listing all your installed extensions.
 
-![Step 1 - Extensions Page](./screenshots/step1.png)
+![Step 1 - Extensions Page](Step 1.png)
 
 ---
 
@@ -36,7 +36,7 @@ You'll see the Extensions page listing all your installed extensions.
 
 In the **top-right corner** of the Extensions page, toggle on **Developer mode**.
 
-![Step 2 - Enable Developer Mode](./screenshots/step2.png)
+![Step 2 - Enable Developer Mode](Step 2.png)
 
 Once enabled, three new buttons will appear at the top:
 
@@ -55,7 +55,7 @@ Once enabled, three new buttons will appear at the top:
 3. Navigate to and **select the extension's root folder** (the one containing `manifest.json`)
 4. Click **Select Folder**
 
-![Step 3 - Load Unpacked](./screenshots/step3.png)
+![Step 3 - Load Unpacked](Step 3.png)
 
 > ⚠️ Make sure you select the **folder itself**, not a file inside it.
 
