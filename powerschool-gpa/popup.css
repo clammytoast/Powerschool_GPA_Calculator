@@ -44,7 +44,7 @@ body {
 
 .logo {
   width: 36px; height: 36px;
-  background: var(--orange);
+  background: var(--navy);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
